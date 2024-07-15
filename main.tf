@@ -7,15 +7,15 @@ data "aws_ami" "app_ami" {
 
   filter {
     name   = "name"
-    values = ["bitnami-tomcat-*-x86_64-hvm-nami"]
+    values = ["bitnami-tomcat-*-x86_64-hvm-ebs-nami"]
   }
 
   filter {
-    name = "virtualization-type"
-    values = ["hmv"]
+    name   = "virtualization-type"
+    values = ["hvm"]
   }
-  
-  owners = ["799382823631"]
+
+  owners = ["979382823631"]
 }
 
 resource "aws_instance" "web" {
@@ -23,6 +23,6 @@ resource "aws_instance" "web" {
   instance_type = var.instance_type
 
   tags = {
-    Name = "ITTalent_"
+    Name = "ItTalent"
   }
 }

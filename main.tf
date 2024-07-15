@@ -20,7 +20,7 @@ data "aws_ami" "app_ami" {
 
 recourses "aws_instance" "web" {
   ami           = data.aws_ami.app_ami.id
-  instance_type = "t3.nano"
+  instance_type = Var.instance_type
 
   tags = {
     Name = "ITTalent_"
